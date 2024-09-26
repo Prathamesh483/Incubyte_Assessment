@@ -47,4 +47,4 @@ test('View available books', () => {
     const availableBooks = library.viewAvailableBooks();
     expect(availableBooks).toContain(book2);
     expect(availableBooks).not.toContain(book1);
-});
+}); 
