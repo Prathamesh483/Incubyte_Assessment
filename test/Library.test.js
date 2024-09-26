@@ -18,7 +18,11 @@ test('Borrow a book from the library', () => {
     const book = new Book('123456789', 'Clean Code', 'Robert C. Martin', 2008);
     library.addBook(book);
     library.borrowBook('123456789');
-    expect(book.isAvailable()).toBe(false);
+    expect(book.IsAvailable()).toBe(false);
 });
 
-
+test('Borrow a non-existent book should throw error', () => {
+    expect(() => {
+        library.borrowBook('000000000');
+    }).toThrow('Book with ISBN 000000000 not found.');
+});
