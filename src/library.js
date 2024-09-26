@@ -21,6 +21,13 @@ class Library {
         book.setAvailable(false);
     }
 
+    returnBook(isbn) {
+        const book = this.findBookByIsbn(isbn);
+        if (book) {
+            book.setAvailable(true);
+        }
+    }
+
     viewAvailableBooks() {
         return this.books.filter(book => book.isAvailable);
     }

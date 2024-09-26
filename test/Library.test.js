@@ -35,3 +35,16 @@ test('Return a borrowed book to the library', () => {
     library.returnBook('123456789');
     expect(book.IsAvailable()).toBe(true);
 });
+
+
+test('View available books', () => {
+    const book1 = new Book('123456789', 'Clean Code', 'Robert C. Martin', 2008);
+    const book2 = new Book('987654321', 'test title', 'test Author', 1999);
+    library.addBook(book1);
+    library.addBook(book2);
+    library.borrowBook('123456789');
+
+    const availableBooks = library.viewAvailableBooks();
+    expect(availableBooks).toContain(book2);
+    expect(availableBooks).not.toContain(book1);
+});
