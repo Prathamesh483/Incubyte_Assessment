@@ -21,7 +21,7 @@ The **Library Management System** is a simple application implemented in JavaScr
 
 1. **Clone the repository**:
 
-   git clone <>
+   git clone https://github.com/Prathamesh483/Incubyte_Assessment.git
    cd LibraryManagementSystem
 
 
