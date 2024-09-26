@@ -6,5 +6,5 @@ test('Create a new book', () => {
     expect(book.getTitle()).toBe('Clean Code');
     expect(book.getAuthor()).toBe('Robert C. Martin');
     expect(book.getPublicationYear()).toBe(2008);
-    expect(book.isAvailable()).toBe(true);
+    expect(book.IsAvailable()).toBe(true);
 });
