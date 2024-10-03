@@ -3,6 +3,7 @@ const Book = require('./book');
 class Library {
     constructor() {
         this.books = [];
+        this.bookBorrowCount = 0;
     }
 
     // Add a new book to the library
@@ -11,6 +12,7 @@ class Library {
     }
 
     borrowBook(isbn) {
+        if(this.book)
         const book = this.findBookByIsbn(isbn);
         if (!book) {
             throw new Error(`Book with ISBN ${isbn} not found.`);
@@ -19,6 +21,7 @@ class Library {
             throw new Error(`Book with ISBN ${isbn} is already borrowed.`);
         }
         book.setAvailable(false);
+        this.bookBorrowCount++;
     }
 
     returnBook(isbn) {
@@ -35,6 +38,8 @@ class Library {
     findBookByIsbn(isbn) {
         return this.books.find(book => book.getIsbn() === isbn);
     }
+
+
 }
 
 module.exports=Library;

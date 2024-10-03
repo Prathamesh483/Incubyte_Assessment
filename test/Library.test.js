@@ -16,10 +16,11 @@ test('Add a book to the library', () => {
 
 test('Borrow a book from the library', () => {
     const book = new Book('123456789', 'Clean Code', 'Robert C. Martin', 2008);
+    
     library.addBook(book);
     library.borrowBook('123456789');
     expect(book.IsAvailable()).toBe(false);
-});
+    expect(library.bookBorrowCount).toBe(1)});
 
 test('Borrow a non-existent book should throw error', () => {
     expect(() => {
@@ -48,3 +49,14 @@ test('View available books', () => {
     expect(availableBooks).toContain(book2);
     expect(availableBooks).not.toContain(book1);
 }); 
+
+
+test(
+    'test borrowcount',
+    ()=>{
+        const boo1 = new Book('123456781', 'Clean Code', 'Robert C. Martin', 2008);
+        const boo2 = new Book('123456782', 'Clean Code', 'Robert C. Martin', 2008);
+        const boo3 = new Book('123456783', 'Clean Code', 'Robert C. Martin', 2008);
+        expect(library.bookBorrowCount).toBeLessThanOrEqual(3);
+    }
+);
